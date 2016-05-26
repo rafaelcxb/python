@@ -1,0 +1,63 @@
+import os
+clear = lambda: os.system('clear')
+
+Idade = []
+Salario = []
+Sexo = []
+
+
+print ("Bem vindo ao melhor programa da face da terra")
+
+
+for i in range(3):
+    id = int(input("Digite a idade do cidadao: "))
+    Idade.append(id)
+
+    sex = str(raw_input("Digite o sexo do cidadao, sendo (M) para Masculino e (F) para Feminino: "))
+    Sexo.append(sex)
+
+    sal = float(input("Digite o salario do cidadao: "))
+    Salario.append(sal)
+
+    clear()
+
+    print "Entre com as informacoes de outro cidadao\n"
+
+# MEDIA
+SomaMedia = 0
+for i in range(3):
+    SomaMedia = SomaMedia + Salario[i]
+    Media = SomaMedia/3
+
+
+# QUANTIDADE DE HOMENS E QUANTIDADE DE MULHERES
+M = 0
+F = 0
+for i in range(3):
+    if (Sexo[i] == "M"):
+        M = M + 1
+    else:
+        F = F + 1
+
+# MAIOR E MENOR IDADE DO GRUPO
+Idade.sort()
+MENORIDADE = Idade[0]
+
+Idade.sort(reverse=True)
+MAIORIDADE = Idade[0]
+
+
+# MULHERES COM SALARIOS MENOR/IGUAL A R$ 100,00
+MulherSal = 0
+for i in range(3):
+    if Salario[i] <= 100:
+        if Sexo[i] == "F":
+            MulherSal = MulherSal + 1
+
+
+
+print 'A MEDIA DO SALARIO DO GRUPO FOI: ', Media
+print 'A QUANTIDADE DE HOMENS NA PESQUISA FOI: ',M
+print 'A MENOR IDADE DO GRUPO FOI: ',MENORIDADE
+print 'A MAIOR IDADE DO GRUPO FOI: ',MAIORIDADE
+print 'A QUANTIDADE DE MULHERES QUE RECEBEM NENOS QUE R$100: ',MulherSal
